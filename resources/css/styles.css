@@ -1,0 +1,66 @@
+* {
+    background-color: #008080;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Compass";
+    src: url(../fonts/compass.ttf);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --Welcome Section */
+#welcome-section {
+    font-family: monospace;
+    position: absolute;
+    bottom: 50vh;
+}
+
+#welcome-message {
+    color: #FAF4F0;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.logo {
+    color: #FAF4F0;
+    display: none;
+    font-size: 5rem;
+}
+
+#typing-bar {
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    right: 0;
+    background-color: #008080;
+    animation: 
+    typing 2s 1.2s steps(24) forwards;
+}
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+#typing-bar::before {
+    content: "";
+    position: absolute;
+    width: .35rem;
+    height: 100%;
+    background:#FAF4F0;
+    animation:
+    blink .85s steps(2, jump-none) infinite;
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
