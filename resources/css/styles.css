@@ -124,7 +124,7 @@ a:hover {
 /* Appear Animation */
 
 header, main, footer {
-    visibility: hidden;
+    /*visibility: hidden;*/
     animation: fadein 1.8s 6.2s forwards ease-in;
 }
 
