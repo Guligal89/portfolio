@@ -1,11 +1,12 @@
 * {
-    background-color: var(--teal);
+    background-color: var(--back-color);
     margin: 0;
 }
 
 :root {
-    --teal: hsl(180, 80%, 25%);
-    --white: #FAF4F0;
+    --back-color: #2C3639;
+    --primary-color: #ebe8e1;
+    --highlight-color: #46C2CB;
 }
 
 html {
@@ -51,9 +52,10 @@ a:hover {
 #welcome-message {
     justify-content: center;
     align-items: center;
-    color: var(--white);
+    color: var(--primary-color);
     font-size: 3rem;
     text-align: center;
+    position: relative;
 }
 
 #typing-bar {
@@ -61,7 +63,7 @@ a:hover {
     height: 130%;
     position: absolute;
     right: 0;
-    background-color: var(--teal);
+    background-color: var(--back-color);
     animation: 
     typing 2s 1.2s steps(24) forwards;
 }
@@ -77,7 +79,7 @@ a:hover {
     position: absolute;
     width: .35rem;
     height: 100%;
-    background:var(--white);
+    background:var(--primary-color);
     animation:
     blink .85s steps(2, jump-none) infinite;
 }
@@ -90,9 +92,9 @@ a:hover {
 
 #welcome-message:after {
     content: '';
-    position: relative;
-    top: 1rem;
-    right: 1rem;
+    position: absolute;
+    top: 2.4rem;
+    right: .6rem;
     animation: enlarge 2s 4.5s forwards cubic-bezier(1, 0.01, 1, 0.99);
     max-width: 100vw;
     max-height: 100vh;
@@ -100,22 +102,22 @@ a:hover {
 
 @keyframes enlarge {
     from {
-        box-shadow: .2rem var(--white);
+        box-shadow: .2rem var(--primary-color);
         border-radius: 100%;
-        border: .2rem solid var(--white);
+        border: .2rem solid var(--primary-color);
     }
     80% {
-        background-color: var(--white);
+        background-color: var(--primary-color);
         transform: scale(650);
         border-radius: 50%;
-        border: .2rem solid var(--white);
+        border: .2rem solid var(--primary-color);
     }
 
     to {
-        background-color: var(--white);
+        background-color: var(--primary-color);
         transform: scale(650);
         border-radius: 50%;
-        border: .2rem solid var(--white);
+        border: .2rem solid var(--primary-color);
     }
 }
 
@@ -145,25 +147,63 @@ header {
     justify-content: space-between;
     align-items: center;
     font-family: 'Open Sans', sans-serif;
-    color: var(--white);
+    color: var(--primary-color);
     padding: .5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #logo {
-    font-size: 3.5rem;
+    font-size: 3rem;
     padding-left: 1.2rem;
     font-family: Compass;
     position: relative;
     bottom: 0.4rem;
+    letter-spacing: 2px;
 }
 
 header ol {
     display: flex;
-    list-style: decimal-leading-zero;
+    list-style: none;
     flex-shrink: 0;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     width: 40vw;
     max-width: 500px;
+    margin-right: 2rem;
+}
+
+header ol li {
+    padding-left: 2rem;
+}
+
+header ol li span {
+    font-family: monospace;
+    color: var(--highlight-color);
+    cursor: default;
+}
+
+header ol li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    opacity: 0;
+    background-color: var(--highlight-color);
+    transition: opacity 500ms, transform 500ms;
+    transform: translate(-100%, 0);
+}
+
+header ol li a {
+    overflow: hidden;
+    position: relative;
+}
+
+header ol li a:hover::after,
+header ol li a:focus::after{
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: all 500ms;
 }
