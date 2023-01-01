@@ -5,8 +5,10 @@
 
 :root {
     --back-color: #2C3639;
+    --dark-shadow: #1d2425;
     --primary-color: #ebe8e1;
     --highlight-color: #46C2CB;
+    --light-gray: #A8A8A8;
 }
 
 html {
@@ -30,6 +32,15 @@ a:hover {
 
 .container {
     display: flex;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
 }
 
 /* --Welcome Section */
@@ -117,7 +128,8 @@ a:hover {
         background-color: var(--primary-color);
         transform: scale(650);
         border-radius: 50%;
-        border: .2rem solid var(--primary-color);
+        border: 0;
+        display: none;
     }
 }
 
@@ -143,7 +155,7 @@ header, main, footer {
 /* Header Section */
 
 header {
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     font-family: 'Open Sans', sans-serif;
@@ -151,6 +163,8 @@ header {
     padding: .5rem;
     font-size: 1rem;
     font-weight: bold;
+    box-shadow: 0 5px 5px var(--dark-shadow);
+    z-index: 5;
 }
 
 #logo {
@@ -206,4 +220,73 @@ header ol li a:focus::after{
     transform: translate(0, 0);
     opacity: 1;
     transition: all 500ms;
+}
+
+/* Social Media (left) */
+
+#side-social-media {
+    position: fixed;
+    left: 10px;
+    bottom: 0;
+    width: 90px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social {
+    filter: grayscale(100%);
+    max-width: 35px;
+    position: relative;
+    bottom: 0;
+    transition: filter .6s ease-in-out, bottom .3s ease-in-out;
+    margin-bottom: 40px;
+}
+
+.social:hover {
+    filter: grayscale(0%);
+    bottom: 6px;
+}
+
+.line {
+    width: 2px;
+    height: 100px;
+    background-color: var(--light-gray);
+}
+
+/* Email (right) */
+
+#side-email {
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    width: 90px;
+    height: 500px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#side-email a {
+    transform: rotate(90deg);
+    color: var(--light-gray);
+    position: relative;
+    bottom: 110px;
+    transition: color .6s ease-in-out, bottom .3s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+#side-email a:hover {
+    bottom: 116px;
+    color: var(--highlight-color);
+}
+
+@media (max-width: 425px) {
+    #side-social-media, #side-email {
+        display: none;
+    }
 }
