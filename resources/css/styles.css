@@ -2,12 +2,28 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: 'Titillium';
+    src: url(../fonts/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'TitilliumBold';
+    src: url(../fonts/TitilliumWeb-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Compass";
+    src: url(../fonts/compass.ttf);
+}
+
 :root {
     --back-color: #2C3639;
     --dark-shadow: #1d2425;
     --primary-color: #ebe8e1;
     --highlight-color: #46C2CB;
-    --light-gray: #A8A8A8;
+    --gray: #A8A8A8;
+    --light-gray: #c9c6c6;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -26,9 +42,9 @@ html {
     overflow: scroll;
 }
 
-@font-face {
-    font-family: "Compass";
-    src: url(../fonts/compass.ttf);
+main {
+    width: 70%;
+    margin: auto;
 }
 
 a:hover {
@@ -46,6 +62,19 @@ img {
 a {
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
+}
+
+/* Global Text Styles */
+
+p {
+    color: var(--primary-color);
+    font-family: 'Titillium','Open Sans', sans-serif;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-family: 'Titillium', 'Open Sans', sans-serif;
+    font-size: 2rem;
 }
 
 /* --Welcome Section */
@@ -139,20 +168,20 @@ a {
 
 @keyframes enlarge {
     from {
-        border-radius: 50%;
+        border-radius: 100%;
         border: .2rem solid var(--primary-color);
     }
     80% {
         background-color: var(--primary-color);
         transform: scale(650);
-        border-radius: 50%;
+        border-radius: 100%;
         border: .2rem solid var(--primary-color);
     }
 
     to {
         background-color: var(--primary-color);
         transform: scale(650);
-        border-radius: 50%;
+        border-radius: 100%;
         border: 0;
         display: none;
     }
@@ -184,7 +213,7 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family:'Titillium', 'Open Sans', sans-serif;
     color: var(--primary-color);
     padding: .5rem;
     font-size: 1rem;
@@ -196,7 +225,7 @@ header {
 #logo {
     font-size: 3rem;
     padding-left: 1.2rem;
-    font-family: Compass;
+    font-family: 'Compass';
     position: relative;
     bottom: 0.4rem;
     letter-spacing: 2px;
@@ -293,7 +322,7 @@ header ol li a:focus::after{
 .line {
     width: 2px;
     height: 100px;
-    background-color: var(--light-gray);
+    background-color: var(--gray);
 }
 
 /* Email (right) */
@@ -312,7 +341,7 @@ header ol li a:focus::after{
 
 #side-email a {
     transform: rotate(90deg);
-    color: var(--light-gray);
+    color: var(--gray);
     position: relative;
     bottom: 110px;
     transition: color .6s ease-in-out, bottom .3s ease-in-out;
@@ -335,23 +364,16 @@ header ol li a:focus::after{
 
 #hero {
     position: relative;
-    width: 70%;
-    top: 110px;
-    font-family: 'Open Sans', sans-serif;
+    font-family:'TitilliumBold', 'Open Sans', sans-serif;
     font-weight: bold;
     flex-direction: column;
     justify-content: flex-start;
     color: var(--primary-color);
-    line-height: 1.4;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 0;
     margin: auto;
+    margin-top: 100px;
+    margin-bottom: 3rem;
     background: transparent;
-}
-
-@media screen and (max-width: 767px) {
-    #hero {
-        width: 80%;
-    }
 }
 
 @media screen and (max-width: 767px) {
@@ -380,18 +402,23 @@ header ol li a:focus::after{
     color: var(--highlight-color);
 }
 
-@media screen and ((min-width: 1108px) or (max-width: 509px)) {
-    #hero-break {
-        display: none;
-    }
-    
+#hero #intro {
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    margin-top: 2rem;
+    color: var(--gray);
 }
 
-@media screen and ((min-width: 1108px) or (max-width: 509px)) {
+@media screen and ((min-width: 1108px) or (max-width: 767px)) {
     #hero-break {
         display: none;
     }
-    
+}
+
+/* About Me Section */
+
+#about-me h2 {
+
 }
 
 /* Global Media Queries */
@@ -412,5 +439,17 @@ header ol li a:focus::after{
     .typing-bar {
         animation:
         typing .9s 1.2s steps(8) forwards;
+    }
+}
+
+@media screen and (max-width: 626px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 322px) {
+    :root {
+        font-size: 12px;
     }
 }
