@@ -354,6 +354,12 @@ header ol li a:focus::after{
     }
 }
 
+@media screen and (max-width: 767px) {
+    #hero {
+        width: 80%;
+    }
+}
+
 #hero p {
     font-size: 1.3rem;
     color: var(--highlight-color);
@@ -372,6 +378,13 @@ header ol li a:focus::after{
 
 #hero #web {
     color: var(--highlight-color);
+}
+
+@media screen and ((min-width: 1108px) or (max-width: 509px)) {
+    #hero-break {
+        display: none;
+    }
+    
 }
 
 @media screen and ((min-width: 1108px) or (max-width: 509px)) {
