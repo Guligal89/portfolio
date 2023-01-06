@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="resources/icons/favicon.ico" type="image/x-icon">
     <link rel="icon" href="resources/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="resources/css/styles.css">
+    <script src="resources/js/main.js" defer></script>
     <title>Gabriel - Full-Stack Developer</title>
 </head>
 <body>
@@ -31,25 +32,59 @@
         </nav>
     </header>
     <main>
-        <div class="desktop container" id="side-social-media">
+        <div class="desktop container visible-at-start" id="side-social-media">
             <a target="_blank" id="github-logo" class="social" href="https://github.com/Guligal89"><img src="resources/icons/github_logo.png" alt=""></a>
             <a target="_blank" id="linkedin-logo" class="social" href="https://www.linkedin.com/in/gabriel-grassia/"><img src="resources/icons/linkedin-logo.png" alt=""></a>
             <span class="line"></span>
         </div>
-        <div class="desktop container" id="side-email">
+        <div class="desktop container visible-at-start" id="side-email">
             <a href="mailto:grassia.gabriel@gmail.com">grassia.gabriel@gmail.com</a>
             <span class="line">
         </div>
-        <div id="hero" class="container">
+        <div id="hero" class="container visible-at-start">
             <p>Hi, my name is</p>
             <h1> <strong id="name">Gabriel Grassia.</strong><br> 
                 I build things for <br id="hero-break"> <strong id="web">the web.</strong></h1>
             <p id="intro">I'm a self-taught Front-End Developer specializing in Web Development.<br>
             My goal is to build innovative websites that communicate your and your brand's personality.</p>
         </div>
-        <div id="about-me">
-            <h2>About me</h2>
-        </div>
+        <section id="about-me" class="container section">
+            <h2 class="section-title"><span>01. </span>About me</h2>
+            <p>Hello! I'm Gabriel. I enjoy creating stuff that others can find both useful and comfortable. Computers and the Web have always fascinated me since I was a kid, so when I found out I could actually create apps like those I used everyday, I got to work! I'm focused on building user-experience-first websites that people really enjoy navigating.</p>
+            <p>This website you are looking at right now is a project itself for me. I'm a hands-on person so I thought the best way to show off my skills and share them with the world was to... build this myself, from scratch!</p>
+        </section>
+        <section id="skills" class="container section">
+            <h2 class="section-title"><span>02. </span>Skills & Technologies</h2>
+            <div class="container" id="skills-list">
+                <div class="skill-element">
+                    <img src="resources/images/html-5-logo.png" alt="HTML5 logo">
+                    <span>HTML 5</span>
+                </div>
+                <div class="skill-element">
+                    <img src="resources/images/css-3-logo.png" alt="CSS3 logo">
+                    <span>CSS 3</span>
+                </div>
+                <div class="skill-element">
+                    <img src="resources/images/js-logo.png" alt="JavaScript logo">
+                    <span>JavaScript (ES6+)</span>
+                </div>
+                <div class="skill-element">
+                    <img src="resources/images/vs-code-logo.png" alt="VS Code logo">
+                    <span>VS Code</span>
+                </div>
+                <div class="skill-element">
+                    <img src="resources/images/git-logo.png" alt="Git logo">
+                    <span>Git</span>
+                </div>
+                <div class="skill-element">
+                    <img id="github" src="resources/images/github-logo.png" alt="GitHub logo">
+                    <span>GitHub</span>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="container section">
+            <h2 class="section-title"><span>03. </span>Projects</h2>
+        </section>
     </main>
     <footer>
 

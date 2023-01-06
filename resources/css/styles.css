@@ -18,12 +18,12 @@
 }
 
 :root {
-    --back-color: #2C3639;
-    --dark-shadow: #1d2425;
-    --primary-color: #ebe8e1;
+    --back-color: #122024;
+    --dark-shadow: rgb(21, 25, 26);
+    --primary-color: #ebf4f5;
     --highlight-color: #46C2CB;
-    --gray: #A8A8A8;
-    --light-gray: #c9c6c6;
+    --gray: #b0b7b9;
+    --light-gray: #c2d0d1;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -37,13 +37,23 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
+/* Scroll is initially disabled during the animation */
 html {
     background-color: var(--back-color);
-    overflow: scroll;
+    overflow: hidden;
+    font-size: calc(15px + 0.390625vw);
+    animation: enablescroll 0s 9s forwards;
+}
+
+/* Enable Scroll Afer Initial Animation */
+@keyframes enablescroll {
+    to {
+        overflow-y: scroll;
+    }
 }
 
 main {
-    width: 70%;
+    width: 75%;
     margin: auto;
 }
 
@@ -74,7 +84,7 @@ p {
 h2 {
     color: var(--primary-color);
     font-family: 'Titillium', 'Open Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 /* --Welcome Section */
@@ -86,7 +96,7 @@ h2 {
 
 #welcome-section {
     font-family: monospace;
-    position: absolute;
+    position: fixed;
     bottom: 50vh;
     margin: auto;
     justify-self: center;
@@ -107,7 +117,7 @@ h2 {
     justify-content: center;
     align-items: center;
     color: var(--primary-color);
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     position: relative;
 }
@@ -141,14 +151,15 @@ h2 {
 @keyframes blink {
     to {
         background: transparent;
+        border-color: transparent;
     }
 }
 
 .welcome-message.desktop:after {
     content: '';
     position: absolute;
-    top: 2.4rem;
-    right: .6rem;
+    top: 1.55rem;
+    right: .38rem;
     animation: enlarge 2s 4.5s forwards cubic-bezier(1, 0.01, 1, 0.99);
     max-width: 100vw;
     max-height: 100vh;
@@ -158,9 +169,9 @@ h2 {
 .welcome-message.mobile:after {
     content: '';
     position: absolute;
-    top: 2.4rem;
-    right: .6rem;
-    animation: enlarge 2s 4.5s forwards cubic-bezier(1, 0.01, 1, 0.99);
+    top: 1.55rem;
+    right: .38rem;
+    animation: enlarge 2s 2.8s forwards cubic-bezier(1, 0.01, 1, 0.99);
     max-width: 100vw;
     max-height: 100vh;
     background-color: var(--primary-color);
@@ -189,10 +200,10 @@ h2 {
 
 /* Appear Animation */
 
-header, main, footer {
+header, main, footer, main section {
     background-color: var(--back-color);
-    visibility: hidden;
     animation: fadein 1.8s 6.2s forwards ease-in;
+    visibility: hidden;
 }
 
 @keyframes fadein {
@@ -210,24 +221,26 @@ header, main, footer {
 /* Header Section */
 
 header {
+    background-color: #122024a2;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     font-family:'Titillium', 'Open Sans', sans-serif;
     color: var(--primary-color);
-    padding: .5rem;
-    font-size: 1rem;
-    box-shadow: 0 5px 5px var(--dark-shadow);
+    padding: .3rem 0;
+    font-size: .9rem;
+    box-shadow: 0 5px 8px var(--dark-shadow);
     z-index: 5;
     position: fixed;
+    backdrop-filter: blur(8px);
 }
 
 #logo {
-    font-size: 3rem;
+    font-size: 2.2rem;
     padding-left: 1.2rem;
     font-family: 'Compass';
     position: relative;
-    bottom: 0.4rem;
+    bottom: 0.3rem;
     letter-spacing: 2px;
 }
 
@@ -236,13 +249,13 @@ header {
 }
 
 #logo:hover::after {
-    content: "";
-    position: absolute;
-    width: .25rem;
+    content: ";";
+    color: transparent;
     height: 90%;
-    top: 18%;
-    right: -.2em;
-    background-color: var(--primary-color);
+    top: .12em;
+    right: .25em;
+    position: relative;
+    border-right: .22rem solid var(--primary-color);
     animation:
     blink .85s steps(2, jump-none) infinite;
 }
@@ -255,7 +268,8 @@ header ol {
     flex-direction: row;
     justify-content: flex-end;
     max-width: 500px;
-    margin-right: 3rem;
+    padding-right: 2rem;
+    font-size: .9em;
 }
 
 header ol li {
@@ -346,7 +360,7 @@ header ol li a:focus::after{
     bottom: 110px;
     transition: color .6s ease-in-out, bottom .3s ease-in-out;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
+    font-size: .85rem;
 }
 
 #side-email a:hover {
@@ -372,25 +386,19 @@ header ol li a:focus::after{
     padding: 1rem 1rem 1rem 0;
     margin: auto;
     margin-top: 100px;
-    margin-bottom: 3rem;
+    margin-bottom: 9rem;
     background: transparent;
-}
-
-@media screen and (max-width: 767px) {
-    #hero {
-        width: 80%;
-    }
+    display: flex;
 }
 
 #hero p {
-    font-size: 1.3rem;
+    font-size: clamp(14px, 6vw, 18px);
     color: var(--highlight-color);
     font-weight: 500;
-    line-height: 2;
 }
 
 #hero h1 {
-    font-size: 4rem;
+    font-size: clamp(40px, 8vw, 70px);
     color: var(--light-gray);
 }
 
@@ -400,13 +408,15 @@ header ol li a:focus::after{
 
 #hero #web {
     color: var(--highlight-color);
+    display: inline-block;
 }
 
 #hero #intro {
-    font-size: 1.05rem;
-    line-height: 1.5rem;
-    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
     color: var(--gray);
+    max-width: 80%;
 }
 
 @media screen and ((min-width: 1108px) or (max-width: 767px)) {
@@ -415,10 +425,91 @@ header ol li a:focus::after{
     }
 }
 
+/* Sections global styles */
+
+.section {
+    width: 90%;
+    margin: 7rem auto 40vh;
+    flex-direction: column;
+}
+
+.section-title span {
+    display: inline;
+    font-size: smaller;
+    color: var(--highlight-color);
+}
+
+.section-title {
+    font-size: clamp(26px, 4.5vw, 32px);
+    margin-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    width: 17rem;
+    height: 1px;
+    position: relative;
+    background-color: var(--gray);
+    display: inline-block;
+    bottom: 0.2em;
+    left: 0.8em;
+}
+
+.section p {
+    max-width: 70%;
+    color: var(--light-gray);
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
 /* About Me Section */
 
-#about-me h2 {
+#about-me p {
+    max-width: 60%;
+}
 
+/* Skills Section */
+
+#skills {
+    margin-bottom: 30vh;
+}
+
+#skills #skills-list {
+    flex-direction: row;
+    padding-top: 2rem;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skill-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-element img {
+    max-width: 64px;
+    max-height: 64px;
+    padding: 32px;
+    filter: grayscale(100%) saturate(0%) contrast(50%);
+    transition: all .5s ease-in-out;
+}
+
+.skill-element img:hover {
+    filter: grayscale(0%) saturate(100%) contrast(100%);
+    transform: scale(1.2);
+}
+
+#github:hover {
+    filter: grayscale(0%) saturate(100%) contrast(100%) invert(1);
+}
+
+.skill-element span {
+    color: var(--light-gray);
+    font-family: 'Titillium';
+    font-size: 1rem;
 }
 
 /* Global Media Queries */
@@ -431,25 +522,43 @@ header ol li a:focus::after{
 }
 
 /* Tablet and smaller only */
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 768px) {
+    #hero #intro {
+        max-width: 100%;
+    }
+}
+
+
+/* Mobile only */
+@media screen and (max-width: 720px) {
     .desktop {
         display: none;
     }
 
+    main {
+        width: 100%;
+    }
+
+    #hero {
+        padding: 1rem;
+    }
+
     .typing-bar {
         animation:
-        typing .9s 1.2s steps(8) forwards;
+        typing .6s 1.2s steps(8) forwards;
     }
-}
 
-@media screen and (max-width: 626px) {
-    :root {
-        font-size: 14px;
+    #welcome-section {
+        animation: 
+        fadeout 1.9s 2.8s forwards cubic-bezier(1, 0.01, 1, 0.99); ;
     }
-}
 
-@media screen and (max-width: 322px) {
-    :root {
-        font-size: 12px;
+    header, main, footer, main div {
+        animation: fadein 1.8s 4.6s forwards ease-in;
     }
+
+    html {
+        animation: enablescroll 0s 6.4s forwards;
+    }    
 }
