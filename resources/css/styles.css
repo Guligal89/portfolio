@@ -22,6 +22,7 @@
     --dark-shadow: rgb(21, 25, 26);
     --primary-color: #ebf4f5;
     --highlight-color: #46C2CB;
+    --highlight-hover: #55d7e0;
     --gray: #b0b7b9;
     --light-gray: #c2d0d1;
 }
@@ -43,6 +44,7 @@ html {
     overflow: hidden;
     font-size: calc(15px + 0.390625vw);
     animation: enablescroll 0s 9s forwards;
+    scroll-behavior: smooth;
 }
 
 /* Enable Scroll Afer Initial Animation */
@@ -69,9 +71,33 @@ img {
     max-width: 100%;
 }
 
-a {
+a, a:active, a:visited {
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
+
+}
+
+button {
+    padding: .7rem 1.5rem;
+    background-color: var(--highlight-color);
+    color: var(--back-color);
+    font-family: 'TitilliumBold', sans-serif;
+    font-size: 1.1rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    transition: background-color .4s ease-in-out;
+    border: 0;
+}
+
+button:hover {
+    background-color: var(--highlight-hover);
+}
+
+button a {
+    color: var(--back-color);
+    font-family: 'TitilliumBold', sans-serif;
+    font-size: 1.1rem;
+    border-radius: .6rem;
 }
 
 /* Global Text Styles */
@@ -296,8 +322,9 @@ header ol li a::after {
     transform: translate(-100%, 0);
 }
 
-header ol li a {
+header ol li a, header ol li a:visited {
     position: relative;
+    color: var(--light-gray);
 }
 
 header ol li a:hover::after,
@@ -429,7 +456,8 @@ header ol li a:focus::after{
 
 .section {
     width: 90%;
-    margin: 7rem auto 40vh;
+    margin: 0 auto;
+    padding: 15vh 0;
     flex-direction: column;
 }
 
@@ -471,7 +499,6 @@ header ol li a:focus::after{
 /* Skills Section */
 
 #skills {
-    margin-bottom: 30vh;
 }
 
 #skills #skills-list {
@@ -510,6 +537,49 @@ header ol li a:focus::after{
     color: var(--light-gray);
     font-family: 'Titillium';
     font-size: 1rem;
+}
+
+/* Projects */
+
+/* Contact */
+
+#contact {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#contact span {
+    color: var(--highlight-color);
+    font-family: 'Titillium';
+    font-size: smaller;
+}
+
+#contact h2 {
+    font-size: clamp(40px, 4.8vw, 56px);
+    margin-bottom: 1rem;
+}
+
+#contact p {
+    line-height: 2;
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+}
+
+footer h4 {
+    font-size: .6rem;
+    color: var(--gray);
+    font-family: 'Titillium', sans-serif;
+}
+
+footer h4 a {
+    color: var(--highlight-color);
+    font-family: 'Titillium', sans-serif;
 }
 
 /* Global Media Queries */
