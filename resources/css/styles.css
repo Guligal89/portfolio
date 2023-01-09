@@ -25,17 +25,22 @@
     --highlight-hover: #55d7e0;
     --gray: #b0b7b9;
     --light-gray: #c2d0d1;
+    --bluish-gray: #1e3941;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-    display: none;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+::-webkit-scrollbar-track {
+    background-color: var(--back-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bluish-gray);
+    width: 4px;
+    border-radius: 3px;
 }
 
 /* Scroll is initially disabled during the animation */
@@ -43,7 +48,7 @@ html {
     background-color: var(--back-color);
     overflow: hidden;
     font-size: calc(15px + 0.390625vw);
-    animation: enablescroll 0s 9s forwards;
+    animation: enablescroll 0s 8s forwards;
     scroll-behavior: smooth;
 }
 
@@ -87,17 +92,22 @@ button {
     cursor: pointer;
     transition: background-color .4s ease-in-out;
     border: 0;
+    box-shadow: 1px 1px 3px var(--dark-shadow);
 }
 
 button:hover {
     background-color: var(--highlight-hover);
 }
 
-button a {
+button a, button a:active {
     color: var(--back-color);
     font-family: 'TitilliumBold', sans-serif;
     font-size: 1.1rem;
     border-radius: .6rem;
+}
+
+button:active {
+
 }
 
 /* Global Text Styles */
@@ -344,6 +354,7 @@ header ol li a:focus::after{
     max-height: 500px;
     flex-direction: column;
     align-items: center;
+    z-index: 5;
 }
 
 .social img {
@@ -361,7 +372,7 @@ header ol li a:focus::after{
 }
 
 .line {
-    width: 2px;
+    width: 1px;
     height: 100px;
     background-color: var(--gray);
 }
@@ -378,6 +389,7 @@ header ol li a:focus::after{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    z-index: 5;
 }
 
 #side-email a {
@@ -474,10 +486,10 @@ header ol li a:focus::after{
 
 .section-title::after {
     content: '';
-    width: 17rem;
     height: 1px;
+    width: 34%;
     position: relative;
-    background-color: var(--gray);
+    background-color: var(--bluish-gray);
     display: inline-block;
     bottom: 0.2em;
     left: 0.8em;
@@ -492,8 +504,52 @@ header ol li a:focus::after{
 
 /* About Me Section */
 
+#about-me .wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    justify-items: center;
+}
+
+#about-me .image-with-border {
+    position: relative;
+}
+
+#about-me .image-container {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    max-width: 300px;
+    filter: grayscale(100%);
+    transition: all .5s;
+}
+
+#about-me .image-with-border:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    top: 15px;
+    left: 15px;
+    border: 2px solid var(--highlight-color);
+    border-radius: 1rem;
+    z-index: -1;
+    transition: all .5s;
+}
+
+#about-me .image-with-border:hover::after {
+    top: 5px;
+    left: 5px;
+}
+
+#about-me .image-container:hover {
+    filter: grayscale(0%);
+}
+
 #about-me p {
-    max-width: 60%;
+    max-width: 100%;
 }
 
 /* Skills Section */
@@ -569,6 +625,10 @@ header ol li a:focus::after{
 
 footer {
     text-align: center;
+    z-index: 4;
+    position: relative;
+    padding-bottom: 1rem;
+    background-color: transparent;
 }
 
 footer h4 {
@@ -582,10 +642,19 @@ footer h4 a {
     font-family: 'Titillium', sans-serif;
 }
 
+#tablet-socials {
+    display: none;
+    width: 25%;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
 /* Global Media Queries */
 
-/* Desktop-only */
-@media screen and (min-width: 768px) {
+/* Tablet and bigger only */
+@media screen and (min-width: 721px) {
     .mobile {
         display: none;
     }
@@ -597,6 +666,26 @@ footer h4 a {
     #hero #intro {
         max-width: 100%;
     }
+
+    #side-social-media, #side-email {
+        display: none;
+    }
+
+    #tablet-socials {
+        display: flex;
+    }
+
+    .skill-element img {
+        filter: none;
+    }
+
+    #github {
+        filter: invert(1);
+    }
+
+    #contact p {
+        max-width: 90%;
+    }
 }
 
 
@@ -607,7 +696,7 @@ footer h4 a {
     }
 
     main {
-        width: 100%;
+        width: 90%;
     }
 
     #hero {
