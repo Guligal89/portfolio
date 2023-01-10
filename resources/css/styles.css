@@ -83,7 +83,7 @@ a, a:active, a:visited {
 }
 
 #contact button {
-    padding: .7rem 1.5rem;
+    padding: .5rem 1rem;
     background-color: var(--highlight-color);
     color: var(--back-color);
     font-family: 'TitilliumBold', sans-serif;
@@ -232,9 +232,9 @@ h2 {
 
 /* Appear Animation */
 
-header, main, footer, main section {
+.fadein {
     background-color: var(--back-color);
-    animation: fadein 1.8s 6.2s forwards ease-in;
+    animation: fadein 1.8s 6.2s forwards ease-in 1;
     visibility: hidden;
 }
 
@@ -265,6 +265,11 @@ header {
     z-index: 5;
     position: fixed;
     backdrop-filter: blur(8px);
+    transition: transform .5s;
+}
+
+.headerDisappear {
+    transform: translateY(-100%);
 }
 
 #logo {
@@ -387,10 +392,6 @@ header .hamburguer .horizontal-line {
 
 #mobile-nav ol li {
     padding: 0;
-}
-
-.hidden {
-    display: none;
 }
 
 .blur {
@@ -605,6 +606,13 @@ header .hamburguer .horizontal-line {
 
 #about-me .image-with-border {
     position: relative;
+    transition: all .5s;
+    background-color: var(--highlight-color);
+    border-radius: 1rem;
+}
+
+#about-me .image-with-border:hover {
+    background-color: white;
 }
 
 #about-me .image-container {
@@ -614,8 +622,9 @@ header .hamburguer .horizontal-line {
     align-items: center;
     border-radius: 1rem;
     max-width: 300px;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(120%);
     transition: all .5s;
+    mix-blend-mode: multiply;
 }
 
 #about-me .image-with-border:after {
@@ -623,8 +632,8 @@ header .hamburguer .horizontal-line {
     position: absolute;
     width: 100%;
     aspect-ratio: 1 / 1;
-    top: 15px;
-    left: 15px;
+    top: 18px;
+    left: 18px;
     border: 2px solid var(--highlight-color);
     border-radius: 1rem;
     z-index: -1;
@@ -632,12 +641,13 @@ header .hamburguer .horizontal-line {
 }
 
 #about-me .image-with-border:hover::after {
-    top: 5px;
-    left: 5px;
+    top: 8px;
+    left: 8px;
 }
 
 #about-me .image-container:hover {
-    filter: grayscale(0%);
+    filter: none;
+    mix-blend-mode: normal;
 }
 
 #about-me p {
@@ -719,6 +729,79 @@ header .hamburguer .horizontal-line {
 }
 
 /* Projects */
+
+#projects {
+    width: 100%;
+}
+
+#projects h2 {
+    margin-bottom: 2rem;
+}
+
+#projects .wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+}
+
+#projects .project-element {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#projects .image-container {
+    border-radius: 10px;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    transition: all .5s;
+    background-color: var(--highlight-color);
+}
+
+#projects .image-container:hover {
+    background-color: white;
+}
+
+#projects img {
+    border-radius: 10px;
+    mix-blend-mode: multiply;
+    transition: all .5s;
+    filter: grayscale(100%) contrast(1) brightness(90%);
+    height: 100%;
+}
+
+#projects img:hover {
+    filter: none;
+    mix-blend-mode: normal;
+}
+
+#projects .project-text {
+    text-align: end;
+    overflow: visible;
+    grid-column: 3 / 6;
+    grid-row: 1;
+    z-index: 3;
+}
+
+#projects .project-text span {
+    color: var(--highlight-color);
+    font-size: .8rem;
+    font-family: 'Titillium', sans-serif;
+}
+
+#projects h3 {
+    color: var(--primary-color);
+    font-family: 'Titillium', sans-serif;
+    font-size: 1.25rem;
+}
+
+#projects p {
+    max-width: 110%;
+    color: var(--light-gray);
+    padding: 1rem;
+    background-color: var(--bluish-gray);
+    border-radius: 15px;
+    margin-bottom: 0;
+}
 
 /* Contact */
 
@@ -860,11 +943,16 @@ a {
         fadeout 1.9s 2.8s forwards cubic-bezier(1, 0.01, 1, 0.99); ;
     }
 
-    header, main, footer, main div {
+    .fadein {
         animation: fadein 1.8s 4.6s forwards ease-in;
     }
 
     html {
         animation: enablescroll 0s 6.4s forwards;
     }    
+}
+
+
+.hidden {
+    display: none;
 }
