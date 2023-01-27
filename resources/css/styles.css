@@ -850,6 +850,10 @@ header .hamburguer .horizontal-line {
         z-index: 3;
     }
 
+    #projects .image-container {
+        display: none;
+    }
+
     #projects .skills-used {
         font-size: .9rem;
     }
