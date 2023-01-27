@@ -21,8 +21,8 @@
     --back-color: #122024;
     --dark-shadow: rgb(21, 25, 26);
     --primary-color: #ebf4f5;
-    --highlight-color: #46C2CB;
-    --highlight-hover: #55d7e0;
+    --highlight-color: #4de8f3;
+    --highlight-hover: #7eebf3;
     --gray: #b0b7b9;
     --light-gray: #c2d0d1;
     --bluish-gray: #1e3941;
@@ -62,6 +62,7 @@ html {
 main {
     width: 75%;
     margin: auto;
+    transition: filter .4s;
 }
 
 a:hover {
@@ -374,8 +375,8 @@ header .hamburguer .horizontal-line {
 #mobile-nav {
     flex-direction: column;
     align-items: center;
-    width: 50%;
-    height: 40vh;
+    width: 11rem;
+    height: 12rem;
     position: fixed;
     right: 0;
     top: 0;
@@ -388,6 +389,7 @@ header .hamburguer .horizontal-line {
 #mobile-nav ol {
     flex-direction: column;
     line-height: 2;
+    padding-top: .6rem;
 }
 
 #mobile-nav ol li {
@@ -395,7 +397,7 @@ header .hamburguer .horizontal-line {
 }
 
 .blur {
-    filter: blur(5px);
+    filter: blur(4px);
 }
 
 /* Social Media (left) */
@@ -622,9 +624,16 @@ header .hamburguer .horizontal-line {
     align-items: center;
     border-radius: 1rem;
     max-width: 300px;
-    filter: grayscale(100%) brightness(120%);
+    filter: grayscale(100%) brightness(90%);
     transition: all .5s;
     mix-blend-mode: multiply;
+}
+
+@media screen and (max-width: 720px) {
+    #about-me .image-container {
+        filter: none;
+        mix-blend-mode: normal;
+    }
 }
 
 #about-me .image-with-border:after {
@@ -768,7 +777,7 @@ header .hamburguer .horizontal-line {
     border-radius: 10px;
     mix-blend-mode: multiply;
     transition: all .5s;
-    filter: grayscale(100%) contrast(1) brightness(90%);
+    filter: grayscale(100%) contrast(1) brightness(110%);
     height: 101%;
     width: 101%;
 }
@@ -803,8 +812,58 @@ header .hamburguer .horizontal-line {
     color: var(--light-gray);
     padding: 1rem;
     background-color: var(--bluish-gray);
-    border-radius: 15px;
+    border-radius: .5rem;
     margin-bottom: 0;
+}
+
+#projects .project-text span.skills-used {
+    color: var(--gray);
+    padding-top: 0.2rem;
+    padding-right: 0.4rem;
+    padding-left: .4rem;
+    font-size: .7rem;
+    word-spacing: .4rem;
+    font-family: monospace;
+}
+
+#projects .project-links {
+    padding: 1rem;
+}
+
+#projects .project-links svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: var(--light-gray);
+    transition: color .5s;
+    cursor: pointer;
+}
+
+#projects .project-links svg:hover {
+    color: var(--highlight-color);
+}
+
+@media screen and (max-width: 720px) {
+    #projects .project-text {
+        text-align: start;
+        overflow: visible;
+        grid-column: 1 / 6;
+        grid-row: 1;
+        z-index: 3;
+    }
+
+    #projects .skills-used {
+        font-size: .9rem;
+    }
+
+    #projects .project-links {
+        display: inline;
+        position: relative;
+        top: .4rem;
+    }
+
+    #projects {
+        width: 90%;
+    }
 }
 
 /* Contact */
@@ -926,7 +985,7 @@ a {
 /* Mobile only */
 @media screen and (max-width: 720px) {
     .desktop {
-        display: none;
+        display: none !important;
     }
 
     main {

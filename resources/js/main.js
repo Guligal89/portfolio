@@ -48,7 +48,7 @@ function checkScroll() {
 
 function toggleHeader(direction, currentScroll) {
     console.log(currentScroll);
-    if (direction === 2 && currentScroll > header.clientHeight) {
+    if (direction === 2 && currentScroll > header.clientHeight && activeNav === false) {
         header.classList.add("headerDisappear");
         lastDirection = direction;
     } else if (direction === 1) {
