@@ -234,7 +234,6 @@ h2 {
 /* Appear Animation */
 
 .fadein {
-    background-color: var(--back-color);
     animation: fadein 1.8s 6.2s forwards ease-in 1;
     visibility: hidden;
 }
@@ -897,13 +896,14 @@ footer {
     z-index: 4;
     position: relative;
     padding-bottom: 1rem;
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 footer h4 {
     font-size: .6rem;
     color: var(--gray);
     font-family: 'Titillium', sans-serif;
+    background-color: transparent;
 }
 
 footer h4 a {
@@ -985,7 +985,7 @@ a {
 /* Mobile only */
 @media screen and (max-width: 720px) {
     .desktop {
-        display: none !important;
+        display: none;
     }
 
     main {
