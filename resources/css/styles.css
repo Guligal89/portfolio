@@ -695,9 +695,6 @@ header .hamburguer .horizontal-line {
 
 /* Skills Section */
 
-#skills {
-}
-
 #skills #skills-list {
     flex-direction: row;
     padding-top: 2rem;
