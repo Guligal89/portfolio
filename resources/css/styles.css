@@ -4,17 +4,17 @@
 
 @font-face {
     font-family: 'Titillium';
-    src: url(../fonts/TitilliumWeb-Regular.ttf);
+    src: url(../fonts/titilliumweb-regular-webfont.woff2);
 }
 
 @font-face {
     font-family: 'TitilliumBold';
-    src: url(../fonts/TitilliumWeb-Bold.ttf);
+    src: url(../fonts/titilliumweb-bold-webfont.woff2);
 }
 
 @font-face {
     font-family: "Compass";
-    src: url(../fonts/compass.ttf);
+    src: url(../fonts/compass-webfont.woff2);
 }
 
 :root {
