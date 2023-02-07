@@ -100,11 +100,12 @@ a, a:active, a:visited {
     background-color: var(--highlight-hover);
 }
 
-#contact button a, button a:active {
+#contact button a, #contact button a:active {
     color: var(--back-color);
-    font-family: 'TitilliumBold', sans-serif;
+    font-family: 'Titillium', sans-serif;
     font-size: 1.1rem;
     border-radius: .6rem;
+    font-weight: 900;
 }
 
 /* Global Text Styles */
